@@ -17,3 +17,4 @@ Shrine.plugin :backgrounding
 Shrine::Attacher.promote do |data|
   PromoteJob.perform_later(data)
 end
+Shrine.plugin :direct_upload
