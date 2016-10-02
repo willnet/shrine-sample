@@ -13,3 +13,7 @@ Shrine.storages = {
 Shrine.plugin :cached_attachment_data
 Shrine.plugin :activerecord
 Shrine.plugin :determine_mime_type
+Shrine.plugin :backgrounding
+Shrine::Attacher.promote do |data|
+  PromoteJob.perform_later(data)
+end
