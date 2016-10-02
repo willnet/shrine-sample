@@ -18,7 +18,10 @@
 
   <div class="field">
     <%= f.label :image_data %>
-    <%= f.text_area :image_data %>
+    <%= f.hidden_field :image,
+      value: event.cached_image_data,
+      id: 'hidden_event_image' %>
+    <%= f.file_field :image %>
   </div>
 
   <div class="actions">
